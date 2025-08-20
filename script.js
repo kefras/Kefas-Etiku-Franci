@@ -1,12 +1,16 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contact-form');
-    const formMessage = document.getElementById('form-message');
+// Mobile Menu Toggle
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
 
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            formMessage.textContent = 'Thank you for your message! I will get back to you soon.';
-            form.reset();
-        });
-    }
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
+
+  // Auto-close menu on link click (mobile)
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("show");
+    });
+  });
 });
